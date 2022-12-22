@@ -1,3 +1,5 @@
+import { AiOutlineFileAdd } from "react-icons/ai"
+import { FcVoicePresentation } from "react-icons/fc"
 function Sidebar({
   notes,
   onAddNote,
@@ -9,9 +11,13 @@ function Sidebar({
   return (
     <div className="app-sidebar">
       <div className="app-sidebar-header">
-        <h1>Notes</h1>
+        <h1>
+          NoteEx <FcVoicePresentation size={56} />
+        </h1>
 
-        <button onClick={onAddNote}>Add</button>
+        <button onClick={onAddNote}>
+          <AiOutlineFileAdd size={42} />
+        </button>
       </div>
       <div className="app-sidebar-notes">
         {sortedNotes.map((note) => (
