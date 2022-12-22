@@ -5,13 +5,15 @@ import Main from "./Main"
 import Sidebar from "./Sidebar"
 
 function App() {
-  const [notes, setNotes] = useState([])
+  const [notes, setNotes] = useState(
+    localStorage.notes ? JSON.parse(localStorage.notes) : []
+  )
 
   const [activeNote, setActiveNote] = useState(false)
 
   useEffect(() => {
     localStorage.setItem("notes", JSON.stringify(notes))
-  }, [notes]);
+  }, [notes])
 
   const onAddNote = () => {
     const newNote = {
@@ -24,8 +26,6 @@ function App() {
 
     setNotes([newNote, ...notes])
   }
-
-  
 
   const onDeleteNote = (idToDelete) => {
     setNotes(notes.filter((note) => note.id !== idToDelete))
